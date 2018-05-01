@@ -26,17 +26,17 @@ const learnStep = (weights, input, desired_output) => {
     let dot_product = 0
     dot_product += bias * weights[0][0];
 
-    input.forEach((value, index) => {
-        dot_product += value * weights[0][index + 1]
-    })
+    for(let index = 0, length = input.length; index < length; index++){
+       dot_product += input[index] * weights[0][index + 1] 
+    }
 
     const output = dot_product > threshold ? 1 : 0
 
     weights[0][0] += learning_rate * (desired_output - output) * bias
 
-    input.forEach((value, index) => {
-        weights[0][index + 1] += learning_rate * (desired_output - output) * value
-    })
+    for(let index = 0, length = input.length; index < length; index++){
+       weights[0][index + 1] += learning_rate * (desired_output - output) * input[index]
+    }
 
     return output
 }
@@ -49,11 +49,10 @@ while (n < 75) {
     const normalized_decl_inputs = decline_inputs.map(value => [(value[0] / 10), (value[1] / 10)])
     const normalized_impr_inputs = improvement_inputs.map((value) => [(value[0] / 10), (value[1] / 10)])
 
-
-    normalized_decl_inputs.forEach((decl_input, index) => {
-        learnStep(weights, decl_input, decline_output)
+    for(let index = 0, length = normalized_decl_inputs.length;  index < length; index++){
+        learnStep(weights, normalized_decl_inputs[index], decline_output)
         learnStep(weights, normalized_impr_inputs[index], improvement_output)
-    })
+    }
     n++
 }
 console.log("Final weights: " + weights)
@@ -64,10 +63,11 @@ const perceptronTest = (input) => {
     let dot_product = 0
     dot_product += bias * weights[0][0];
 
-    input.forEach((value, index) => {
-        console.log(value)
-        dot_product += value * weights[0][index + 1]
-    })
+
+    for(let index = 0, length = input.length; index < length; index++){
+        dot_product += input[index] * weights[0][index + 1]
+        console.log(input[index])
+    }
 
     const output = dot_product > threshold ? 1 : 0
 
@@ -86,4 +86,6 @@ const test_inputs = [
     [0.75, 0.7]
 ]
 
-test_inputs.forEach((value) => perceptronTest(value))
+for(let index = 0, length = test_inputs.length; index < length; index++){
+    perceptronTest(test_inputs[index])
+}
