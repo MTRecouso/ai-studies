@@ -1,16 +1,15 @@
+# ai-studies
+Projects for the Artificial Intelligence subject of Fatec Rubens Lara. Currently being written in Javascript, but may include other languages in the future.
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [ai-studies](#ai-studies)
+
 - [Pseudo-perceptron with step function](#pseudo-perceptron-with-step-function)
 - [Perceptron with step function](#perceptron-with-step-function)
 - [Adaline Perceptron](#adaline-perceptron)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# ai-studies
-Projects for the Artificial Intelligence subject of Fatec Rubens Lara. Currently being written in Javascript, but may include other languages in the future.
 
 # Pseudo-perceptron with step function
 
